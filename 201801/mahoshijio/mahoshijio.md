@@ -38,3 +38,9 @@ __int64 __fastcall malloc_trim(__int64 a1)
   do
   {
 ```
+
+## 怎么搜索one gadget
+  搜索字符串‘/bin/sh’
+
+# 参考资料
+0ctf 2017 babyheap
