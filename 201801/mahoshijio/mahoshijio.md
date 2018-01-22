@@ -1,4 +1,11 @@
+# 漏洞点
+ UAF
 
+# 利用
+  1、利用UFA泄露堆地址
+  2、利用fastbin attack，修改fd，实现任意写
+  3、修改一个chunk的size大小，执行free操作，chunk进入unsorted bin中，此时该chunk的fd和bk指针指向main_arena，可以泄露出main_arena的地址，从而泄露libc的地址
+  4、利用fastbin attack修改malloc_hook的地址，从而get shell
 
 # 通过main_arena泄露libc基址
 在fastbin为空时，unsortbin的fd和bk指向自身main_arena，而main_arena存储在libc.so.6文件的.data段，通过这个偏移我们就可以获取libc的基址
